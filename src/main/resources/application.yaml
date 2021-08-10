@@ -1,0 +1,24 @@
+logging: 
+  level:
+    org:
+      springframework: INFO
+    com:
+      faurecia: INFO
+      zaxxer: DEBUG
+    root: ERROR
+
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: none
+    datasource:
+        url: jdbc:postgresql://localhost:5432/JDR_manager
+        username: postgres
+        password: 25a82!BMO#
+        hikari:
+            connectionTimeout: 20000
+            maximumPoolSize: 5
+            poolName: HikariPoolZZZ
+server:
+  port: 0
+   
