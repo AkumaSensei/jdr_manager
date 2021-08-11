@@ -18,10 +18,11 @@ public class Edition implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
-	@Column(name="\"jeu_id\"", nullable=false)
-	private int jeuId;
+	@ManyToOne
+	@JoinColumn(name="\"jeu_id\"", nullable=false)
+	private Jeu jeu;
 
 	@Column(name="\"name\"", nullable=false, length=255)
 	private String name;
@@ -33,7 +34,7 @@ public class Edition implements Serializable {
 	public Edition() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
@@ -41,12 +42,12 @@ public class Edition implements Serializable {
 		this.id = id;
 	}
 
-	public int getJeuId() {
-		return this.jeuId;
+	public Jeu getJeu() {
+		return this.jeu;
 	}
 
-	public void setJeuId(int jeuId) {
-		this.jeuId = jeuId;
+	public void setJeuId(Jeu jeu) {
+		this.jeu = jeu;
 	}
 
 	public String getName() {

@@ -53,7 +53,16 @@ public class Item implements Serializable {
 	private Set<Campagne> campagnes;
 
 	//bi-directional many-to-many association to Jeu
-	@ManyToMany(mappedBy="items")
+	@ManyToMany
+	@JoinTable(
+	        name="\"item_in_jeu\""
+	        , joinColumns={
+
+	            }
+	        , inverseJoinColumns={
+
+	            }
+	        )
 	private Set<Jeu> jeux;
 
 	//bi-directional many-to-one association to ItemInOuvrage
@@ -61,11 +70,29 @@ public class Item implements Serializable {
 	private Set<ItemInOuvrage> itemInOuvrages;
 
 	//bi-directional many-to-many association to Scenario
-	@ManyToMany(mappedBy="items")
+	@ManyToMany
+	@JoinTable(
+            name="\"item_in_scenario\""
+            , joinColumns={
+
+                }
+            , inverseJoinColumns={
+
+                }
+            )
 	private Set<Scenario> scenarios;
 
 	//bi-directional many-to-many association to Scene
-	@ManyToMany(mappedBy="items")
+	@ManyToMany
+	@JoinTable(
+            name="\"item_in_scene\""
+            , joinColumns={
+
+                }
+            , inverseJoinColumns={
+
+                }
+            )
 	private Set<Scene> scenes;
 
 	//bi-directional many-to-many association to Event
@@ -86,7 +113,16 @@ public class Item implements Serializable {
 	private Set<Possede> possedes;
 
 	//bi-directional many-to-many association to Tag
-	@ManyToMany(mappedBy="items")
+	@ManyToMany
+	@JoinTable(
+	        name="\"tag_on_item\""
+	        , joinColumns={
+
+	            }
+	        , inverseJoinColumns={
+
+	            }
+	        )
 	private Set<Tag> tags;
 
 	public Item() {

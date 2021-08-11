@@ -17,10 +17,10 @@ public class Document implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"category_id\"", nullable=false)
-	private int categoryId;
+	private long categoryId;
 
 	@Column(name="\"name\"", nullable=false, length=255)
 	private String name;
@@ -35,7 +35,7 @@ public class Document implements Serializable {
 	public Document() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
@@ -43,7 +43,7 @@ public class Document implements Serializable {
 		this.id = id;
 	}
 
-	public int getCategoryId() {
+	public long getCategoryId() {
 		return this.categoryId;
 	}
 

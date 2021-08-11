@@ -3,9 +3,12 @@ package bmo.jdr.jdrmanager.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -20,13 +23,19 @@ import javax.persistence.Table;
 public class Possede implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@EmbeddedId
+    private PossedePK id;
+	
 	@Column(name="\"actif\"", nullable=false)
 	private boolean actif;
 
-	@Column(name="\"character_id\"", nullable=false)
-	private int characterId;
+	@ManyToOne
+	@MapsId("character_id")
+	@JoinColumn(name="\"character_id\"", nullable=false)
+	private Character character;
 
 	@ManyToOne
+	@MapsId("item_id")
     @JoinColumn( name="\"item_id\"", nullable=false )
 	private Item item;
 
@@ -44,12 +53,12 @@ public class Possede implements Serializable {
 		this.actif = actif;
 	}
 
-	public int getCharacterId() {
-		return this.characterId;
+	public Character getCharacter() {
+		return this.character;
 	}
 
-	public void setCharacterId(int characterId) {
-		this.characterId = characterId;
+	public void setCharacter(Character character) {
+		this.character = character;
 	}
 
 	public Item getItem() {
@@ -67,5 +76,20 @@ public class Possede implements Serializable {
 	public void setSequence(int sequence) {
 		this.sequence = sequence;
 	}
+	
+	@Embeddable
+    public class PossedePK implements Serializable {
+
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 1L;
+
+        @Column(name = "character_id")
+        private Long character_id;
+
+        @Column(name = "item_id")
+        private Long item_id;
+    }
 
 }

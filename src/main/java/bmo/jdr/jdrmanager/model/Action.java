@@ -24,7 +24,7 @@ public class Action implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"label\"", nullable=false, length=255)
 	private String label;
@@ -32,7 +32,7 @@ public class Action implements Serializable {
 	public Action() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

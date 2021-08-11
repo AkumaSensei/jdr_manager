@@ -14,11 +14,16 @@ import javax.persistence.*;
 public class ItemInOuvrage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@EmbeddedId
+    private ItemInOuvragePK id;
+	
 	@ManyToOne
+	@MapsId("item_id")
     @JoinColumn( name="\"item_id\"", nullable=false )
 	private Item item;
 
 	@ManyToOne
+	@MapsId("ouvrage_id")
     @JoinColumn( name="\"ouvrage_id\"", nullable=false )
 	private Ouvrage ouvrage;
 
@@ -52,4 +57,20 @@ public class ItemInOuvrage implements Serializable {
 		this.page = page;
 	}
 
+	
+	@Embeddable
+	public class ItemInOuvragePK implements Serializable {
+
+	    /**
+         * 
+         */
+        private static final long serialVersionUID = 1L;
+
+        @Column(name = "item_id")
+	    private Long item_id;
+
+	    @Column(name = "ouvrage_id")
+	    private Long ouvrage_id;
+	}
 }
+

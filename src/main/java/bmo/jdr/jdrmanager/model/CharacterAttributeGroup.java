@@ -24,7 +24,7 @@ public class CharacterAttributeGroup implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to CharacterAttribute
-	@OneToMany(mappedBy="characterAttributeGroupBean")
+	@OneToMany(mappedBy="characterAttributeGroup")
 	private Set<CharacterAttribute> characterAttributes;
 
 	//bi-directional many-to-one association to CharacterSheetTemplate

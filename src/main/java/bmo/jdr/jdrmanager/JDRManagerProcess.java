@@ -1,10 +1,14 @@
 package bmo.jdr.jdrmanager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +35,22 @@ public class JDRManagerProcess {
 		
 		return result;
 	}
+	
+	@GetMapping("/getCampagneInfo/{id}")
+    Map<String,String> getCampagneInfo(@PathVariable long id) {
+	    
+	    Map<String,String> campagneInfo = new HashMap<>();
+	    Optional<Campagne> oCampagne = campagneRepository.findById(id);
+	    
+	    if(oCampagne.isPresent()) {
+	        Campagne campagne = oCampagne.get();
+	        
+	        campagneInfo.put("name", campagne.getName());
+	        campagneInfo.put("desctipion", campagne.getDescription());
+	    }
+	    
+        return campagneInfo;
+    }
 	
 	@GetMapping("/allScenarios")
     List<Scenario> allScenarios() {

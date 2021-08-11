@@ -17,7 +17,7 @@ public class Event implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@ManyToOne
     @JoinColumn( name="\"action_id\"", nullable=false )
@@ -32,7 +32,7 @@ public class Event implements Serializable {
 	public Event() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
