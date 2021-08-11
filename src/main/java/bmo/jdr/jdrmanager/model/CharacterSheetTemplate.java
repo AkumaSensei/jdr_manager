@@ -18,7 +18,7 @@ public class CharacterSheetTemplate implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"jeu_id\"", nullable=false)
 	private int jeuId;
@@ -40,7 +40,7 @@ public class CharacterSheetTemplate implements Serializable {
 	public CharacterSheetTemplate() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

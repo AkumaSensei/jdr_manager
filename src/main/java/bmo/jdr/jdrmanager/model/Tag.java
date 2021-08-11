@@ -17,7 +17,7 @@ public class Tag implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"label\"", nullable=false, length=255)
 	private String label;
@@ -29,7 +29,7 @@ public class Tag implements Serializable {
 	public Tag() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

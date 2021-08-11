@@ -24,7 +24,7 @@ public class AttributeType implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"type\"", nullable=false, length=255)
 	private String type;
@@ -32,7 +32,7 @@ public class AttributeType implements Serializable {
 	public AttributeType() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

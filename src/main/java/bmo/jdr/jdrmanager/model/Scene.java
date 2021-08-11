@@ -17,7 +17,7 @@ public class Scene implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "\"id\"", unique = true, nullable = false)
-	private int id;
+	private long id;
 
 	@Column(name = "\"content\"", length = 2147483647)
 	private String content;
@@ -61,7 +61,7 @@ public class Scene implements Serializable {
 	public Scene() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

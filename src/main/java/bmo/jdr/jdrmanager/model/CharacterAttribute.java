@@ -16,7 +16,7 @@ public class CharacterAttribute implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "\"id\"", unique = true, nullable = false)
-    private int id;
+    private long id;
 
     @Column(name = "\"attribute_type\"", nullable = false)
     private int attributeType;
@@ -30,7 +30,7 @@ public class CharacterAttribute implements Serializable {
     public CharacterAttribute() {
     }
 
-    public int getId() {
+    public long getId() {
         return this.id;
     }
 

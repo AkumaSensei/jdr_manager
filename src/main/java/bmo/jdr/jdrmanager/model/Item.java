@@ -18,7 +18,7 @@ public class Item implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"description\"", length=2147483647)
 	private String description;
@@ -128,7 +128,7 @@ public class Item implements Serializable {
 	public Item() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

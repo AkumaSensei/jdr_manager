@@ -17,7 +17,7 @@ public class Illustration implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@ManyToOne
     @JoinColumn( name="\"category_id\"", nullable=false )
@@ -36,7 +36,7 @@ public class Illustration implements Serializable {
 	public Illustration() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 

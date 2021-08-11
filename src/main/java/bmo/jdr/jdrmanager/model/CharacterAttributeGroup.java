@@ -18,7 +18,7 @@ public class CharacterAttributeGroup implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"id\"", unique=true, nullable=false)
-	private int id;
+	private long id;
 
 	@Column(name="\"name\"", nullable=false, length=255)
 	private String name;
@@ -35,7 +35,7 @@ public class CharacterAttributeGroup implements Serializable {
 	public CharacterAttributeGroup() {
 	}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
