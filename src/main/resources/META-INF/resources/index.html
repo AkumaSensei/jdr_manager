@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" lang="javascript"></script>
+    <title>index</title>
+</head>
+<body>
+    <div>
+		<form action="/JDRManager/addNote" method="post">
+			<textarea name="note" cols="40" rows="2"></textarea>
+			<br> <input type="submit" value="Add Note" />
+		</form>
+	</div>
+	<div>
+		<form action="/JDRManager/invalidate/session" method="post">
+			<input type="submit" value="Destroy Session" />
+		</form>
+	</div>
+	<div>
+		<h2>Notes</h2>
+		<ul th:each="note : ">
+			<li th:text="">note</li>
+		</ul>
+	</div>
+</body>
+</html>

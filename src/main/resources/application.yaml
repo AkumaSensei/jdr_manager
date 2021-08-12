@@ -6,19 +6,25 @@ logging:
       faurecia: INFO
       zaxxer: DEBUG
     root: ERROR
-
 spring:
-    jpa:
-        hibernate:
-            ddl-auto: none
-    datasource:
-        url: jdbc:postgresql://localhost:5432/JDR_manager
-        username: postgres
-        password: 25a82!BMO#
-        hikari:
-            connectionTimeout: 20000
-            maximumPoolSize: 5
-            poolName: HikariPoolZZZ
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/JDR_manager
+    username: postgres
+    password: 25a82!BMO#
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+      poolName: HikariPoolZZZ  
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
 server:
-  port: 0
+  servlet:
+    session:
+      timeout: 600
+  port: 9000
    
